@@ -33,7 +33,7 @@ namespace MoonRabbit
         public int rule50;
 
         //holds the previous board -- for unmake move
-        public Position prev;
+        public Position? prev;
 
         public Move? prevMove;
 
@@ -131,6 +131,13 @@ namespace MoonRabbit
 
         }
 
+        //initializes this Position object to the position from FEN
+        //TODO: Implementation
+        public void FromFen(String fen)
+		{
+
+		}
+
         //returns a String representation of the board
         public String BoardToString()
         {
@@ -181,6 +188,23 @@ namespace MoonRabbit
             
             return output;
         }
+
+        //checks if move is possible
+        public bool MovePossible(Move m)
+		{
+            return false;
+		}
+
+        //makes move
+        public void MakeMove() 
+        { 
+        }
+
+        //unmakes move
+        public Position UnMakeMove()
+		{
+            return prev;
+		}
     }
 
     
