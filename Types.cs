@@ -33,7 +33,8 @@ namespace MoonRabbit
         g,
         h
     }
-
+    
+    //TODO: refactor names
     public enum MoveType
     {
         Quiet,

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 
@@ -8,7 +9,7 @@ using System.Text;
 namespace MoonRabbit
 {
     //base pieces
-    public class Piece
+    public struct Piece
     {
 
         //position of the piece, 0 - 7 and 0 - 7
@@ -21,6 +22,13 @@ namespace MoonRabbit
         //piece type
         public PieceType pieceType { get; set; }
 
+        public Piece(Square pos, Player color, PieceType pieceType)
+        {
+            this.pos = pos;
+            this.color = color;
+            this.pieceType = pieceType;
+        }
+
         //returns a string representation of piecetype and location
         //for example, a king at e5 would be represented at King@e5
         public String getLocation()
@@ -32,5 +40,7 @@ namespace MoonRabbit
         {
             return String.Format("{0} {1}", color, pieceType);
         }
+
+
     }
 }
