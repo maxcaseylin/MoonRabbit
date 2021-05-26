@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "xJd9rYVY1al/g8xJ+Qy3ol7AAiiG8x1JbKdyKIJdsqaxiwciRgRWqO2wElcZU/cG8u2psr9Ppi2BDb7gpVz2ew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\maxca\\Documents\\Github\\MoonRabbit\\MoonRabbit\\MoonRabbit.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maxca\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}

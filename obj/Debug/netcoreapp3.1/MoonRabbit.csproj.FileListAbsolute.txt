@@ -1,0 +1,13 @@
+C:\Users\maxca\Documents\Github\MoonRabbit\bin\Debug\netcoreapp3.1\MoonRabbit.exe
+C:\Users\maxca\Documents\Github\MoonRabbit\bin\Debug\netcoreapp3.1\MoonRabbit.deps.json
+C:\Users\maxca\Documents\Github\MoonRabbit\bin\Debug\netcoreapp3.1\MoonRabbit.runtimeconfig.json
+C:\Users\maxca\Documents\Github\MoonRabbit\bin\Debug\netcoreapp3.1\MoonRabbit.runtimeconfig.dev.json
+C:\Users\maxca\Documents\Github\MoonRabbit\bin\Debug\netcoreapp3.1\MoonRabbit.dll
+C:\Users\maxca\Documents\Github\MoonRabbit\bin\Debug\netcoreapp3.1\MoonRabbit.pdb
+C:\Users\maxca\Documents\Github\MoonRabbit\obj\Debug\netcoreapp3.1\MoonRabbit.csprojAssemblyReference.cache
+C:\Users\maxca\Documents\Github\MoonRabbit\obj\Debug\netcoreapp3.1\MoonRabbit.AssemblyInfoInputs.cache
+C:\Users\maxca\Documents\Github\MoonRabbit\obj\Debug\netcoreapp3.1\MoonRabbit.AssemblyInfo.cs
+C:\Users\maxca\Documents\Github\MoonRabbit\obj\Debug\netcoreapp3.1\MoonRabbit.csproj.CoreCompileInputs.cache
+C:\Users\maxca\Documents\Github\MoonRabbit\obj\Debug\netcoreapp3.1\MoonRabbit.dll
+C:\Users\maxca\Documents\Github\MoonRabbit\obj\Debug\netcoreapp3.1\MoonRabbit.pdb
+C:\Users\maxca\Documents\Github\MoonRabbit\obj\Debug\netcoreapp3.1\MoonRabbit.genruntimeconfig.cache
