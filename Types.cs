@@ -42,15 +42,15 @@ namespace MoonRabbit
             KingCastle,
             QueenCastle,
             Captures,
-            EP_Capture,
-            KN_Pro,
-            B_Pro,
-            R_Pro,
-            Q_Pro,
-            KN_ProCapture,
-            B_ProCapture,
-            R_ProCapture,
-            Q_ProCapture
+            EPCapture,
+            KNPro,
+            BPro,
+            RPro,
+            QPro,
+            KNProCapture,
+            BProCapture,
+            RProCapture,
+            QProCapture
         }
             
     }

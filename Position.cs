@@ -27,17 +27,30 @@ namespace MoonRabbit
         public bool check;
         
         //checking for castling is computationally expensive
-        public bool white_castle;
-        public bool black_castle;        
+        public bool whiteCastle;
+        public bool blackCastle;        
 
         //holds the square for en-passant if possible
-        public Square? ep_square;
+        public Square? epSquare;
 
         //50-move rule -- keeps track of moves needed for rule 50
-        public int rule_50;
+        public int rule50;
 
         //holds the previous board -- for unmake move
         public Position prev;
 
+        public Move prevMove;
+
+        public int halfMoves;
+        public int depth;
+
+        
+        public void InitPosition()
+        {
+
+        }
+
     }
+
+    
 }
