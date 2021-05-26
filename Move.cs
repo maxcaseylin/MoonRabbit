@@ -13,6 +13,6 @@ namespace MoonRabbit
     {
         public Square origin;
         public Square target;
-        public Types.MoveType moveType;
+        public MoveType moveType;
     }
 }

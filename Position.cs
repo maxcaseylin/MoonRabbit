@@ -21,7 +21,7 @@ namespace MoonRabbit
         }
 
         //player turn
-        public Types.Player turn;
+        public Player turn;
 
         //is the player in check?
         public bool check;
@@ -44,9 +44,16 @@ namespace MoonRabbit
         public int halfMoves;
         public int depth;
 
-        
+        //default constructor calls InitPosition
+        public Position()
+        {
+            InitPosition();
+        }
+
+        //initializes this Position object to the starting position
         public void InitPosition()
         {
+            turn = Player.White;
 
         }
 

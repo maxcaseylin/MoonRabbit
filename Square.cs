@@ -19,7 +19,7 @@ namespace MoonRabbit
 
         public String toString()
         {
-            return String.Format("{0}{1}", (Types.PieceType)col, row);
+            return String.Format("{0}{1}", (PieceType)col, row);
         }
     }
 }

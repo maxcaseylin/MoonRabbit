@@ -16,16 +16,16 @@ namespace MoonRabbit
         public Square pos;
 
         //piece color
-        public Types.Player color { get; set; }
+        public Player color { get; set; }
 
         //piece type
-        public Types.PieceType pieceType { get; set; }
+        public PieceType pieceType { get; set; }
 
         //returns a string representation of piecetype and location
         //for example, a king at e5 would be represented at King@e5
         public String getLocation()
         {
-            return String.Format("{0}@{1}{2}", pieceType, (Types.Column) pos.col, pos.row);
+            return String.Format("{0}@{1}{2}", pieceType, (Column) pos.col, pos.row);
         }
 
         public String toString()
