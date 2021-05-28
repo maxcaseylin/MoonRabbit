@@ -196,6 +196,16 @@ namespace MoonRabbit
             return board[sq.row, sq.col].HasValue && board[sq.row, sq.col]?.pieceType == pieceType;
         }
 
+        //TODO: checks if the board is in checkmate
+        public bool IsCheckMate()
+		{
+            if (!check)
+			{
+                return false;
+			}
+            return true;
+		}
+
         //genereates a list of ALL legal moves that can be made
         public List<Move> GenMoves()
 		{
