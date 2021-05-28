@@ -191,7 +191,7 @@ namespace MoonRabbit
         }
 
         //checks if a piece with pieceType exists on the square(that is, not null and is pieceType)
-        public bool PieceIsThere(Square sq, PieceType pieceType)
+        public bool IsPieceThere(Square sq, PieceType pieceType)
         {
             return board[sq.row, sq.col].HasValue && board[sq.row, sq.col]?.pieceType == pieceType;
         }
@@ -206,6 +206,12 @@ namespace MoonRabbit
             return true;
 		}
 
+        //TODO: checks if the opposing king is in check
+        public bool IsCheck()
+		{
+            return false;
+		}
+
         //genereates a list of ALL legal moves that can be made
         public List<Move> GenMoves()
 		{
@@ -215,9 +221,6 @@ namespace MoonRabbit
             return moves;
 		}
 
-
-
-        
         //makes move
         public void MakeMove() 
         { 
