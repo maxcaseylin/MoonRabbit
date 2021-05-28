@@ -13,7 +13,7 @@ namespace MoonRabbit
         //mailbox board representation, contains Pieces
         public Piece?[,] board;
 
-        
+
         public Piece?[] whitePieces;
         public Piece?[] blackPieces;
 
@@ -22,10 +22,10 @@ namespace MoonRabbit
 
         //is the player in check?
         public bool check;
-        
-        //checking for castling is computationally expensive
+
+        //checking for castling is computationally expensive, we should store the conditions somewhere else
         public bool whiteCastle;
-        public bool blackCastle;        
+        public bool blackCastle;
 
         //holds the square for en-passant if possible
         public Square? epSquare;
@@ -128,16 +128,16 @@ namespace MoonRabbit
                 whitePieces[8 + i] = whitePiece;
                 blackPieces[8 + i] = blackPiece;
 
-            }    
+            }
 
         }
 
         //initializes this Position object to the position from FEN
         //TODO: Implementation
         public void FromFen(String fen)
-		{
+        {
 
-		}
+        }
 
         //returns a String representation of the board
         public String BoardToString()
@@ -155,7 +155,7 @@ namespace MoonRabbit
                     else
                     {
                         switch (p?.pieceType)
-                        {                            
+                        {
                             case PieceType.Pawn:
                                 output += "P";
                                 break;
@@ -176,7 +176,7 @@ namespace MoonRabbit
                                 break;
                         }
 
-                        
+
                     }
 
                     //if at h-file, create
@@ -186,7 +186,7 @@ namespace MoonRabbit
                     }
                 }
             }
-            
+
             return output;
         }
 
@@ -196,67 +196,18 @@ namespace MoonRabbit
             return board[sq.row, sq.col].HasValue && board[sq.row, sq.col]?.pieceType == pieceType;
         }
 
-        //checks if move is possible
-        public bool MovePossible(Move m)
+        //genereates a list of ALL legal moves that can be made
+        public List<Move> GenMoves()
 		{
-            return false;
+            List<Move> moves = new List<Move>();
+
+            //TODO: for each piece, generate all moves.
+            return moves;
 		}
 
-        //helper for MovePossible -> Pawns
-        public bool PawnMovePossible(Move m)
-		{
-            Square originSquare = m.origin;
-            //check that the move is not castling
-            if (m.moveType == MoveType.KingCastle || m.moveType == MoveType.QueenCastle)
-			{
-                return false;
-			}
-
-            //for safety's sake, check if there really is a pawn on the origin square
-            if (!PieceIsThere(originSquare, PieceType.Pawn))
-			{
-                return false;
-			}
-
-            //I think we trust that the moveType is consistent with what move is being made between origin and target
-            Player pieceColor = (Player) (board[originSquare.row, originSquare.col]?.color);
-            if (pieceColor == Player.White)
-			{
-                //check if an obstruction exists
 
 
-			} else
-			{
-
-			}
-            //check that there are no obstructions between the pawn and target square
-            
-
-            return true;
-		}
-
-        //helper for MovePossible -> Knight
-        public bool KnightMovePossible(Move m) {
-            return false;
-        }
-
-        //helper for MovePossible -> Bishop
-        public bool BishopMovePossible(Move m)
-        {
-            return false;
-        }
-
-        //helper for MovePossbile -> Queen
-        public bool QueenMovePossible(Move m)
-		{
-            return false;
-		}
-
-        public bool KingMovePossible(Move m)
-		{
-            return false;
-		}
-
+        
         //makes move
         public void MakeMove() 
         { 
