@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Xml;
 
@@ -9,7 +10,7 @@ namespace MoonRabbit
     public class Position
     {
 
-        //board representation, contains Pieces
+        //mailbox board representation, contains Pieces
         public Piece?[,] board;
 
         
@@ -189,8 +190,69 @@ namespace MoonRabbit
             return output;
         }
 
+        //checks if a piece with pieceType exists on the square(that is, not null and is pieceType)
+        public bool PieceIsThere(Square sq, PieceType pieceType)
+        {
+            return board[sq.row, sq.col].HasValue && board[sq.row, sq.col]?.pieceType == pieceType;
+        }
+
         //checks if move is possible
         public bool MovePossible(Move m)
+		{
+            return false;
+		}
+
+        //helper for MovePossible -> Pawns
+        public bool PawnMovePossible(Move m)
+		{
+            Square originSquare = m.origin;
+            //check that the move is not castling
+            if (m.moveType == MoveType.KingCastle || m.moveType == MoveType.QueenCastle)
+			{
+                return false;
+			}
+
+            //for safety's sake, check if there really is a pawn on the origin square
+            if (!PieceIsThere(originSquare, PieceType.Pawn))
+			{
+                return false;
+			}
+
+            //I think we trust that the moveType is consistent with what move is being made between origin and target
+            Player pieceColor = (Player) (board[originSquare.row, originSquare.col]?.color);
+            if (pieceColor == Player.White)
+			{
+                //check if an obstruction exists
+
+
+			} else
+			{
+
+			}
+            //check that there are no obstructions between the pawn and target square
+            
+
+            return true;
+		}
+
+        //helper for MovePossible -> Knight
+        public bool KnightMovePossible(Move m) {
+            return false;
+        }
+
+        //helper for MovePossible -> Bishop
+        public bool BishopMovePossible(Move m)
+        {
+            return false;
+        }
+
+        //helper for MovePossbile -> Queen
+        public bool QueenMovePossible(Move m)
+		{
+            return false;
+		}
+
+        public bool KingMovePossible(Move m)
 		{
             return false;
 		}
