@@ -23,9 +23,9 @@ namespace MoonRabbit
         //is the player in check?
         public bool check;
 
-        //checking for castling is computationally expensive, we should store the conditions somewhere else
-        public bool whiteCastle;
-        public bool blackCastle;
+        //checking for castling is computationally expensive, we should store some conditions somewhere else
+        public Castling whiteCastle;
+        public Castling blackCastle;
 
         //holds the square for en-passant if possible
         public Square? epSquare;
@@ -52,8 +52,8 @@ namespace MoonRabbit
         {
             turn = Player.White;
             check = false;
-            whiteCastle = true;
-            blackCastle = true;
+            whiteCastle = new Castling(false, false, false);
+            blackCastle = new Castling(false, false, false);
             epSquare = null;
             rule50 = 0;
             prev = null;
