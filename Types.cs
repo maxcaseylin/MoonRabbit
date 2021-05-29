@@ -18,8 +18,8 @@ namespace MoonRabbit
 
     public enum Player
     {
-        Black,
-        White
+        White,
+        Black
     }
 
     public enum Column

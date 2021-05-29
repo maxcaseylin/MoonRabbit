@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Xml;
@@ -40,6 +41,11 @@ namespace MoonRabbit
 
         public int halfMoves;
         public int depth;
+
+        
+        public Square?[] checkers; //squares the king is recieving check from
+        public Piece?[][] pinners; //pieces that are pinning another piece to the king, row 0 is for white, row 1 is for black
+        public Piece?[][] blockers; // pieces that are blocking a check on the king
 
         //default constructor calls InitPosition
         public Position()
@@ -220,6 +226,21 @@ namespace MoonRabbit
             //TODO: for each piece, generate all moves.
             return moves;
 		}
+
+        public void GenPawnMoves(List<Move> moves, Piece piece)
+		{
+            if (piece.pieceType != PieceType.Pawn)
+			{
+                throw new ArgumentException("Piece is not a Pawn");
+            }
+
+            if (blockers[(int) piece.pieceType].Contains(piece))
+			{
+                //the pawn is blocking a check, so it can't be moved
+                return;
+			}
+		}
+
 
         //makes move
         public void MakeMove() 
