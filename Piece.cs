@@ -41,6 +41,28 @@ namespace MoonRabbit
             return String.Format("{0} {1}", color, pieceType);
         }
 
+        //maps character codes to piecetype
+        public static PieceType CharToPieceType(char c)
+		{
+            switch (char.ToUpper(c))
+			{
+                case 'R':
+                    return PieceType.Rook;
+                case 'K':
+                    return PieceType.King;
+                case 'N':
+                    return PieceType.Knight;
+                case 'B':
+                    return PieceType.Bishop;
+                case 'Q':
+                    return PieceType.Queen;
+                case 'P':
+                    return PieceType.Pawn;
+                default:
+                    throw new ArgumentException("Invalid PieceType");
+
+			}
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -10,6 +11,7 @@ namespace MoonRabbit
     //Represents a Position object, used as a node for minimax
     public class Position
     {
+        //class fields
 
         //mailbox board representation, contains Pieces
         public Piece?[,] board;
@@ -28,7 +30,7 @@ namespace MoonRabbit
         public Castling whiteCastle;
         public Castling blackCastle;
 
-        //holds the square for en-passant if possible
+        //holds the target square for en-passant if possible
         public Square? epSquare;
 
         //50-move rule -- keeps track of moves needed for rule 50
@@ -50,7 +52,7 @@ namespace MoonRabbit
         //default constructor calls InitPosition
         public Position()
         {
-            InitPosition();
+            //InitPosition();
         }
 
         //initializes this Position object to the starting position
@@ -142,8 +144,84 @@ namespace MoonRabbit
         //TODO: Implementation
         public void FromFen(String fen)
         {
+            //initialize board
+            board = new Piece?[8, 8];
 
+            String[] fields = fen.Split(" ");
+            if (fields.Length != 6)
+			{
+                throw new ArgumentException("Error: FEN could not be split into 6 parts");
+			}
+            
+            String[] rows = fields[0].Split("/");
+            Array.Reverse(rows); // FEN starts from 8th rank to 1st, so we reverse to work with our board representation
+            if (rows.Length != 8)
+			{
+                throw new ArgumentException("Error: FEN does not have 8 rows");
+            }
+
+            //set up the board according to each line
+            for (int i = 0; i < 8; i++)
+			{
+                int col = 0;
+                foreach (char c in rows[i])
+				{
+
+                    PieceType p;
+                    Player pl;
+                    if (char.IsDigit(c))
+					{
+                        //fill the next c spaces with null
+                        for (int j = 0; j < char.GetNumericValue(c); j++)
+						{
+                            board[i, col] = null;
+                            col++;
+						}
+					} else
+					{
+                        //else we check the character code and assign accordingly 
+                        //if the character is lowercase player is black
+                        //assign pieceType
+                        pl = char.IsLower(c) ? Player.Black : Player.White;
+                        p = Piece.CharToPieceType(c);
+
+                        Piece temp = new Piece(new Square(i, col), pl, p);
+                        board[i, col] = temp;
+
+                        col++;
+                    }
+                }
+			}
+
+            //once board is set up, set active Player
+            turn = char.ToLower(fields[1][0]).Equals('w') ? Player.White : Player.Black;
+
+            //TODO: check and assign Castling availbility
+
+            //assign en passant target square
+            if (fields[3].Equals("-"))
+			{
+                epSquare = null;
+			} else if (fields[3].Length != 2) {
+                throw new ArgumentException("Error: FEN has invalid EP square");
+			} else
+			{
+                //oh god what a monstrosity
+                epSquare = new Square((int) char.GetNumericValue(fields[3][1]), (int) Enum.Parse(typeof(Column), fields[3][0].ToString()));
+			}
+
+            //halfmove clock -> used for 50-move rule
+            rule50 = int.Parse(fields[4]);
+
+            //TODO: full move number
+            
         }
+
+        //returns the FEN representation of this Position Object
+        public String ToFen()
+		{
+            return "";
+		}
 
         //returns a String representation of the board
         public String BoardToString()
@@ -252,6 +330,8 @@ namespace MoonRabbit
 		{
             return prev;
 		}
+
+        
     }
 
     
