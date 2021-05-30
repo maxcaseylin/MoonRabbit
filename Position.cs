@@ -217,6 +217,13 @@ namespace MoonRabbit
             
         }
 
+        //TODO: clears the Position Object
+        public void Clear()
+		{
+            
+		}
+
+
         //returns the FEN representation of this Position Object
         public String ToFen()
 		{
